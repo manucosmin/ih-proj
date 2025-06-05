@@ -1,0 +1,10 @@
+name = "r2-gallery"
+main = "r2-gallery/src/index.js"
+compatibility_date = "2025-06-05"
+account_id = "e4030b08629b69f3556f798158665467"
+workers_dev = true
+
+[[r2_buckets]]
+binding = "R2_BUCKET"
+bucket_name = "galerie"
+preview_bucket_name = "galerie"

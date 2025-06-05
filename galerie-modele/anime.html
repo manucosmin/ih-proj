@@ -76,7 +76,7 @@
   <script>
   async function loadGallery() {
     try {
-      const res = await fetch('https://r2-gallery.manucosmin10.workers.dev/');
+      const res = await fetch('https://r2-gallery.manucosmin10.workers.dev/anime/');
       if (!res.ok) throw new Error('Nu am putut încărca lista de imagini.');
       const urls = await res.json();
 

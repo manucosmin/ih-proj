@@ -4070,3 +4070,24 @@ body.lucrari {
 #nav .dropdown:hover .dropdown-content {
     display: flex;
 }
+
+.image-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 1em;
+}
+
+.card {
+  border: 1px solid #ddd;
+  padding: 0.5em;
+  border-radius: 6px;
+  background: #fff;
+  box-shadow: 1px 1px 6px rgba(0,0,0,0.1);
+  text-align: center;
+}
+
+.card img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 4px;
+}

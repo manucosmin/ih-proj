@@ -4091,3 +4091,12 @@ body.lucrari {
   height: auto;
   border-radius: 4px;
 }
+
+img {
+  user-drag: none;
+  -webkit-user-drag: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  user-select: none;
+}
+

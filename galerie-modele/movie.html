@@ -82,6 +82,49 @@
     </footer>
 
   </div>
+<script>
+  async function loadGallery() {
+    try {
+      const res = await fetch('https://r2-gallery.manucosmin10.workers.dev/movie/');
+      if (!res.ok) throw new Error('Nu am putut încărca lista de imagini.');
+      const urls = await res.json();
+
+      const container = document.querySelector('.image-grid');
+      container.innerHTML = ''; // șterge placeholderul
+
+      urls.forEach(url => {
+        const card = document.createElement('div');
+        card.className = 'card';
+
+        const img = document.createElement('img');
+        img.src = url;
+        img.alt = 'Imagine Anime';
+        img.onerror = () => img.style.display = 'none';
+
+        card.appendChild(img);
+        container.appendChild(card);
+      });
+    } catch (error) {
+      alert('Eroare la încărcarea imaginilor.');
+      console.error(error);
+    }
+  }
+
+  window.addEventListener('DOMContentLoaded', loadGallery);
+  </script>
+  <script>
+  // Previne click dreapta pe toată pagina
+  document.addEventListener('contextmenu', function(e) {
+    e.preventDefault();
+  });
+
+  // Previne drag-and-drop pe imagini
+  document.addEventListener('dragstart', function(e) {
+    if (e.target.tagName.toLowerCase() === 'img') {
+      e.preventDefault();
+    }
+  });
+</script>
 
   <!-- Scripts -->
   <script src="../assets/js/jquery.min.js"></script>

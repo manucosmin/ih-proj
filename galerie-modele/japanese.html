@@ -1,13 +1,13 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-  <title>Modele oldschool - Ink Havok</title>
+  <title>Modele japanese - Ink Havok</title>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
   <link rel="stylesheet" href="../assets/css/main.css" />
   <noscript><link rel="stylesheet" href="../assets/css/noscript.css" /></noscript>
 </head>
-<body class="galerie is-preload oldschool">
+<body class="galerie is-preload japanese">
 
   <!-- Wrapper -->
   <div id="wrapper">
@@ -19,8 +19,8 @@
 							<img src="../images/tbd-logo-3.jpg" alt="Logo Ink Havok" width="500" height="500" />
 						</a>
 </span>
-      <h1>Modele oldschool</h1>
-      <p>Inspiră-te din creațiile noastre oldschool preferate!</p>
+      <h1>Modele japanese</h1>
+      <p>Inspiră-te din creațiile noastre japanese preferate!</p>
     </header>
 
     <!-- Nav -->
@@ -45,8 +45,8 @@
       <!-- Placeholder Content -->
       <section id="categorie" class="main">
         <header class="major">
-          <h2>Modele Oldschool</h2>
-          <p>Aici vei găsi o selecție de modele oldschool unice și creative!</p>
+          <h2>Modele Japanese</h2>
+          <p>Aici vei găsi o selecție de modele japanese unice și creative!</p>
         </header>
 
         <div class="image-grid">
@@ -82,6 +82,49 @@
     </footer>
 
   </div>
+<script>
+  async function loadGallery() {
+    try {
+      const res = await fetch('https://r2-gallery.manucosmin10.workers.dev/japanese/');
+      if (!res.ok) throw new Error('Nu am putut încărca lista de imagini.');
+      const urls = await res.json();
+
+      const container = document.querySelector('.image-grid');
+      container.innerHTML = ''; // șterge placeholderul
+
+      urls.forEach(url => {
+        const card = document.createElement('div');
+        card.className = 'card';
+
+        const img = document.createElement('img');
+        img.src = url;
+        img.alt = 'Imagine Anime';
+        img.onerror = () => img.style.display = 'none';
+
+        card.appendChild(img);
+        container.appendChild(card);
+      });
+    } catch (error) {
+      alert('Eroare la încărcarea imaginilor.');
+      console.error(error);
+    }
+  }
+
+  window.addEventListener('DOMContentLoaded', loadGallery);
+  </script>
+  <script>
+  // Previne click dreapta pe toată pagina
+  document.addEventListener('contextmenu', function(e) {
+    e.preventDefault();
+  });
+
+  // Previne drag-and-drop pe imagini
+  document.addEventListener('dragstart', function(e) {
+    if (e.target.tagName.toLowerCase() === 'img') {
+      e.preventDefault();
+    }
+  });
+</script>
 
   <!-- Scripts -->
   <script src="../assets/js/jquery.min.js"></script>
